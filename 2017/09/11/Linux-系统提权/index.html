@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="tao1tao.github.io">
   <title>Linux 系统提权 | Taotao&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前提： 已经拿到低权shell 被入侵的机器上面有nc，python，perl等linux非常常见的工具 有权限上传文件和下载文件 内核漏洞提权 内核漏洞是我们几乎最先想到的提权方法。通杀的内核漏洞是十分少见的，因而我们应该先对系统相关的信息进行收集。 第一步 查看linux版本信息 cat /etc/issuecat /etc/*-release 查看内核版本 uname -a  这里我找了台机">
-<meta name="keywords" content="渗透测试,游戏,生活感悟">
+  <meta name="description" content="前提： 已经拿到低权shell 被入侵的机器上面有nc，python，perl等linux非常常见的工具 有权限上传文件和下载文件 内核漏洞提权 内核漏洞是我们几乎最先想到的提权方法。通杀的内核漏洞是十分少见的，因而我们应该先对系统相关的信息进行收集。">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 系统提权">
 <meta property="og:url" content="tao1tao.github.io/2017/09/11/Linux-系统提权/index.html">
 <meta property="og:site_name" content="Taotao&#39; Blog">
-<meta property="og:description" content="前提： 已经拿到低权shell 被入侵的机器上面有nc，python，perl等linux非常常见的工具 有权限上传文件和下载文件 内核漏洞提权 内核漏洞是我们几乎最先想到的提权方法。通杀的内核漏洞是十分少见的，因而我们应该先对系统相关的信息进行收集。 第一步 查看linux版本信息 cat /etc/issuecat /etc/*-release 查看内核版本 uname -a  这里我找了台机">
-<meta property="og:updated_time" content="2017-09-11T06:41:02.576Z">
+<meta property="og:description" content="前提： 已经拿到低权shell 被入侵的机器上面有nc，python，perl等linux非常常见的工具 有权限上传文件和下载文件 内核漏洞提权 内核漏洞是我们几乎最先想到的提权方法。通杀的内核漏洞是十分少见的，因而我们应该先对系统相关的信息进行收集。">
+<meta property="og:updated_time" content="2017-09-15T11:34:17.150Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 系统提权">
-<meta name="twitter:description" content="前提： 已经拿到低权shell 被入侵的机器上面有nc，python，perl等linux非常常见的工具 有权限上传文件和下载文件 内核漏洞提权 内核漏洞是我们几乎最先想到的提权方法。通杀的内核漏洞是十分少见的，因而我们应该先对系统相关的信息进行收集。 第一步 查看linux版本信息 cat /etc/issuecat /etc/*-release 查看内核版本 uname -a  这里我找了台机">
+<meta name="twitter:description" content="前提： 已经拿到低权shell 被入侵的机器上面有nc，python，perl等linux非常常见的工具 有权限上传文件和下载文件 内核漏洞提权 内核漏洞是我们几乎最先想到的提权方法。通杀的内核漏洞是十分少见的，因而我们应该先对系统相关的信息进行收集。">
   
   
     <link rel="icon" href="/assets/img/favicon.ico">
@@ -69,6 +69,8 @@ var _hmt = _hmt || [];
 			
 				<li><a href="/">主页</a></li>
 	        
+				<li><a href="/">随笔</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -115,6 +117,8 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -127,7 +131,9 @@ var _hmt = _hmt || [];
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 100%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
+		        
+					<li style="width: 50%"><a href="/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -168,6 +174,7 @@ var _hmt = _hmt || [];
 <p>有权限上传文件和下载文件</p>
 <p>内核漏洞提权</p>
 <p>内核漏洞是我们几乎最先想到的提权方法。通杀的内核漏洞是十分少见的，因而我们应该先对系统相关的信息进行收集。</p>
+<a id="more"></a>
 <p>第一步</p>
 <p>查看linux版本信息</p>
 <p>cat /etc/issuecat /etc/*-release</p>
@@ -203,6 +210,17 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -387,6 +405,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
