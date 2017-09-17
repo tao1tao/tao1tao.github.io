@@ -171,31 +171,9 @@ var _hmt = _hmt || [];
       
         <h4 id="SQL注入原理及危害"><a href="#SQL注入原理及危害" class="headerlink" title="SQL注入原理及危害"></a>SQL注入原理及危害</h4><p>​    攻击者通过用户可控参数中（GET , POST ,HTTP 头部 ,Cookie 等位置）注入SQL语法，破坏原有的正常SQL结构。</p>
 <p>​    攻击者利用 SQL 注入漏洞，可以获取数据库中的多种信息（例如：管理员后台密码），从而脱取数据库中内容（脱库）。在特别情况下还可以修改数据库内容或者插入内容到数据库，如果数据库权限分配存在问题，或者数据库本身存在缺陷，那么攻击者可以通过 SQL 注入漏洞直接获取 webshell 或者服务器系统权限</p>
-<h4 id="SQL注入的分类"><a href="#SQL注入的分类" class="headerlink" title="SQL注入的分类"></a>SQL注入的分类</h4><h5 id="按数据类型分为："><a href="#按数据类型分为：" class="headerlink" title="按数据类型分为："></a>按数据类型分为：</h5><p>1.整形注入</p>
-<p>2.字符型注入</p>
-<h5 id="按注入语法分为："><a href="#按注入语法分为：" class="headerlink" title="按注入语法分为："></a>按注入语法分为：</h5><p>1.联合查询注入</p>
-<p>2.多语句查询注入</p>
-<p>3.报错型注入</p>
-<p>4.布尔型注入</p>
-<p>5.延时注入</p>
-<h4 id="SQL注入挖掘"><a href="#SQL注入挖掘" class="headerlink" title="SQL注入挖掘"></a>SQL注入挖掘</h4><p>1.and 1=1/and 1=2   根据页面的显示情况，可以判断是否是整型注入</p>
-<p>2.加单引号，可以根据页面显示或者显示的数据库错误信息来判断是整形注入还是字符型注入</p>
-<p>3.用and sleep()函数，根据页面的返回时间来判断</p>
-<h4 id="SQL注入常用函数"><a href="#SQL注入常用函数" class="headerlink" title="SQL注入常用函数"></a>SQL注入常用函数</h4><h5 id="字符串连接显示函数"><a href="#字符串连接显示函数" class="headerlink" title="字符串连接显示函数"></a>字符串连接显示函数</h5><p>1.concat(str1,str2)，可以连接一个或者多个字符串</p>
-<p>2.concat_ws(separator, str1,str2…)，表示 concat with separator,即有分隔符的字符串连接</p>
-<p>3.group_concat(str1,str2……)，把每一行数据分到一个组里显示出来</p>
-<h5 id="mysql函数"><a href="#mysql函数" class="headerlink" title="mysql函数"></a>mysql函数</h5><p>4.system_user() 系统用户名</p>
-<p>5.user() ，用户名</p>
-<p>6.current_user， 当前用户名</p>
-<p>7.session_user()，连接数据库的用户名</p>
-<p>8.database() ，数据库名</p>
-<p>9.version() ，MYSQL数据库版本</p>
-<p>10.load_file() ，MYSQL读取本地文件的函数</p>
-<p>11.@@datadir， 读取数据库路径</p>
-<p>12.@@basedir， MYSQL 安装路径</p>
-<p>13.@@version_compile_os， 操作系统</p>
-<h4 id="SQL注入神器以及一些常用参数"><a href="#SQL注入神器以及一些常用参数" class="headerlink" title="SQL注入神器以及一些常用参数"></a>SQL注入神器以及一些常用参数</h4><p>sqlmap<br>-p    指定测试参数<br>-b    获取banner<br>–dbs 列举数据库<br>–is-dba    是否是管理员权限<br>–current-db    当前数据库<br>–current-user    当前用户<br>–tables    列举数据库的表名<br>–count    检索所有条目数<br>–columns    获取表的列名<br>–dump 获取表中的数据，包含列<br>–dump-all    转存DBMS数据库所有表项目<br>–level    测试等级(1-5)，默认为1<br>-v 显示详细信息<br>读取数据库—&gt;读取表—-&gt;读取表的列—-&gt;获取内容<br>-D 指定数据库<br>-T    指定表<br>-C    指定列<br>–dbms=mysql oracle mssql 指定数据库</p>
-
+        
+          <a class="article-more-a" href="/2017/09/17/SQL注入/#more">more >></a>
+        
       
 
       
